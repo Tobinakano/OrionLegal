@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Css/style.css?v=1.0' %}">
+    <link rel="icon" href="{% static 'Img/Logo.png' %}">
+    <title>¿Por qué Oríon Legal?</title>
+</head>
+<body style="background: url(https://starwalk.space/gallery/images/constellations-all-you-want-to-know/1920x1080.jpg); background-size: cover;">
+    <header>
+        <a class="logo" href="{% url 'index' %}">
+            <img src="{% static 'Img/Logo.png' %}" alt="Logo Orion Legal">
+            <h1>Orion Legal</h1>
+        </a>
+        <nav>
+            <a href="{% url 'index' %}" class="nav-link">Inicio</a>
+            <li class="dropdown">
+                <a href="#" class="nav-link">Quiénes Somos ▾</a>
+                <ul class="dropdown-menu">
+                <li><a href="{% url 'misionyvision' %}"><span class="icon">💡</span> Misión y Visión</a></li>
+                <li><a href="{% url '¿PorqueOrionLegal?' %}"><span class="icon">❓</span> ¿Por qué Oríon Legal?</a></li>
+                <li><a href="{% url '¿QueBuscamos?' %}"><span class="icon">🔭</span> ¿Qué buscamos?</a></li>
+                </ul>
+            </li>
+            <a href="{% url 'indexregistro' %}"><button class="Registro">Registrarse</button></a>
+            <a href="{% url 'login' %}"><button class="Iniciar">Iniciar Sesión</button></a>
+        </nav>
+    </header>
+    <div class="contenido-orion">
+        <div class="contenido-orion2">
+            <h1>¿Por qué Oríon Legal?</h1>
+            <h2>Orión es una constelación que todo el mundo reconoce fácilmente en el cielo. Así como esa constelación servía de guía para marineros y viajeros, nuestro proyecto quiere ser esa guía para los ciudadanos y los abogados, quiere ser un punto de referencia claro y confiable que les muestre el camino hacia la justicia y hacia una forma justa de valorar los servicios de nuestra profesión.</h2>
+        </div>
+    </div>
+    <footer>
+        Orión Legal © 2025
+    </footer>
+</body>
+</html>

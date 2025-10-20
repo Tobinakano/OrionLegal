@@ -1,0 +1,264 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css?v=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'Css/style.css?v=1.0' %}">
+    <link rel="icon" href="{% static 'Img/Logo.png' %}">
+    <title>Orión Legal</title>
+</head>
+<body>
+    <header>
+        <a class="logo" href="{% url 'index' %}">
+            <img src="{% static 'Img/Logo.png' %}" alt="Logo Orion Legal">
+            <h1>Orion Legal</h1>
+        </a>
+        <nav>
+            <a href="{% url 'index' %}" class="nav-link">Inicio</a>
+            <li class="dropdown">
+                <a href="#" class="nav-link">Quiénes Somos ▾</a>
+                <ul class="dropdown-menu">
+                <li><a href="{% url 'misionyvision' %}"><span class="icon">💡</span> Misión y Visión</a></li>
+                <li><a href="{% url '¿PorqueOrionLegal?' %}"><span class="icon">❓</span> ¿Por qué Oríon Legal?</a></li>
+                <li><a href="{% url '¿QueBuscamos?' %}"><span class="icon">🔭</span> ¿Qué buscamos?</a></li>
+                </ul>
+            </li>
+            <a href="#contacto" class="nav-link">Contáctanos</a>
+            <a href="{% url 'indexregistro' %}"><button class="Registro">Registrarse</button></a>
+            <a href="{% url 'login' %}"><button class="Iniciar">Iniciar Sesión</button></a>
+        </nav>
+    </header>
+    <div class="encabezado">
+        <h1>Un puente entre ciudadanos y abogados. Conecta gratis, conoce un rango aproximado de honorarios y elige con confianza.</h1>
+        <img src="{% static 'Img/Portada.jpg' %}" alt="Portada">
+    </div>
+    <div class="seleccionar">
+        <h2><i class="fa-solid fa-location-dot"></i> Selecciona tu ciudad para comenzar</h2>
+        <select>
+            <option value="" disabled selected>Elige una ciudad</option>
+            <option value="bogota">Bogotá</option>
+            <option value="medellin">Medellín</option>
+            <option value="cali">Cali</option>
+            <option value="barranquilla">Barranquilla</option>
+            <option value="cartagena">Cartagena</option>
+        </select>
+        <a href="#"><button class="confirmar">Confirmar ciudad</button></a>
+    </div>
+    <div class="chat-grupo">
+        <div>
+            <h1>Cuéntanos tu situación en tus palabras</h1>
+            <h2>Nuestro sistema lo traduce al lenguaje legal y te muestra opciones de abogados.</h2>
+            <div class="input-grupo">
+                <input type="text" placeholder="Ejemplo: Me quiero separar de mi esposo">
+                <button id="toggleBtn">Procesar consulta</button>
+            </div>
+        </div>
+        <img src="https://cdni.iconscout.com/illustration/premium/thumb/mujer-tomando-consulta-de-abogado-illustration-svg-download-png-9764132.png" alt="imagen de busqueda">
+    </div>
+    <div class="abogados oculto" id="infoAbogados">
+        <hr>
+        <div class="wrap">
+            <h2 class="section-title">Nuestros Abogados</h2>
+
+            <section class="cards">
+                <!-- 1 -->
+                <article class="card">
+                    <figure class="photo">
+                    <img src="https://img.freepik.com/fotos-premium/retrato-hombre-negocios-escritorio-brazos-cruzados-confianza-carrera-inspeccion-legal-bufete-abogados-abogado-o-hombre-negocios-trabajo-oficina-moderno-como-profesional-garantia-calidad_590464-267394.jpg" alt="Pablo López - Abogado" />
+                    </figure>
+                    <h3 class="name">Pablo López</h3>
+                    <div class="rating" aria-label="5 de 5">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="city">Cali</div>
+                    <div class="area">Derecho Civil - Familia</div>
+
+                    <div class="pill">Rango orientativo para procesos similares: $3.000.000 – $5.000.000</div>
+
+                    <button class="btn primary" id="btnPerfilPablo">Ver Perfil</button>
+                    <button class="btn">Agendar Consulta</button>
+                </article>
+
+                <!-- Modal Perfil Pablo -->
+                <div id="modalPablo" class="modal" role="dialog" aria-modal="true" aria-labelledby="tituloPablo" aria-hidden="true">
+                    <div class="modal-card">
+                        <button class="modal-close" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+
+                        <header class="modal-head">
+                            <div class="modal-avatar">
+                            <img src="https://img.freepik.com/fotos-premium/retrato-hombre-negocios-escritorio-brazos-cruzados-confianza-carrera-inspeccion-legal-bufete-abogados-abogado-o-hombre-negocios-trabajo-oficina-moderno-como-profesional-garantia-calidad_590464-267394.jpg" alt="Foto de Pablo López">
+                            </div>
+                            <div>
+                            <h3 id="tituloPablo" class="modal-title">PABLO LÓPEZ</h3>
+                            <div class="modal-meta">
+                                <div><b>Especialidad:</b> Derecho de Familia – Divorcios</div>
+                                <div><b>Ubicación:</b> Cali</div>
+                            </div>
+
+                            <div class="badge">
+                                <i class="fa-solid fa-dollar-sign"></i>
+                                Rango orientativo para procesos similares: $3.000.000 – $5.000.000
+                            </div>
+                            <div class="mini-note">
+                                El valor final puede variar según la complejidad y características del caso
+                            </div>
+                            </div>
+                        </header>
+
+                        <section>
+                            <h4 class="modal-subtitle">Detalles del Perfil</h4>
+                            <p class="modal-desc">
+                            Abogado con 5 años de experiencia en procesos de familia, especializado en divorcios con hijos y
+                            liquidación de sociedad conyugal.
+                            </p>
+
+                            <div class="facts">
+                            <div><b>Modalidad de cobro:</b> Por proceso</div>
+                            <div><b>Calificación por consulta:</b>
+                                <span style="color:#f1c40f">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                </span>
+                            </div>
+                            <div><b>Consulta inicial:</b> Gratuita</div>
+                            <div><b>Idiomas:</b> Español, Inglés</div>
+                            </div>
+
+                            <div class="actions">
+                            <button class="btn-msg">Mensaje</button>
+                            <button class="btn-agendar" disabled>Agendar consulta</button>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- 2 -->
+                <article class="card">
+                    <figure class="photo">
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=800&auto=format&fit=crop" alt="Maria Rodriguez - Abogada" />
+                    </figure>
+                    <h3 class="name">Maria Rodriguez</h3>
+                    <div class="rating" aria-label="4 de 5">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    </div>
+                    <div class="city">Cali</div>
+                    <div class="area">Derecho de Familia</div>
+
+                    <div class="pill">Rango orientativo para procesos similares: $2.000.000 – $3.500.000</div>
+
+                    <button class="btn primary">Ver Perfil</button>
+                    <button class="btn">Agendar Consulta</button>
+                </article>
+
+                <!-- 3 -->
+                <article class="card">
+                    <figure class="photo">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop" alt="Daniel Sanchez - Abogado" />
+                    </figure>
+                    <h3 class="name">Daniela Sanchez</h3>
+                    <div class="rating" aria-label="3 de 5">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    </div>
+                    <div class="city">Cali</div>
+                    <div class="area">Derecho de Familia</div>
+
+                    <div class="pill">Rango orientativo para procesos similares: $1.500.000 – $2.000.000</div>
+
+                    <button class="btn primary">Ver Perfil</button>
+                    <button class="btn">Agendar Consulta</button>
+                </article>
+            </section>
+        </div>
+    </div>
+    <div class="contacto" id="contacto">
+        <div class="newsletter">
+            <h3>Contáctanos</h3>
+            <p>Reciba en su correo electrónico nuestro número informativo</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Correo electrónico" required>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+        <p class="footer-info">
+            Este portal es propiedad de Orión Legal y utiliza cookies para mejorar tu experiencia y analizar el uso del sitio. Si continúas navegando, consideramos que aceptas su uso de acuerdo con nuestra
+        </p>
+        <div class="social-icons">
+            <a href="#" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="" title="Correo"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+    </div>
+    <div id="cookie-banner">
+        <img src="https://cdn-icons-png.flaticon.com/512/1047/1047711.png" alt="Icono de galleta">    
+        <div class="cookie-text">
+            <strong>Aviso de Cookies</strong>
+            Este portal es propiedad de Orión Legal y utiliza cookies para mejorar tu experiencia y analizar el uso del sitio.  
+            Si continúas navegando, consideramos que aceptas su uso de acuerdo con nuestra 
+            <a href="#">Política de Cookies</a>.
+        </div>
+        <button class="cookie-btn" id="accept-cookies">Aceptar</button>
+    </div>
+    <footer>
+        Orión Legal © 2025
+    </footer>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const banner = document.getElementById('cookie-banner');
+        const btn = document.getElementById('accept-cookies');
+
+        if (sessionStorage.getItem('cookiesAcceptedSession') === 'true') {
+        banner.style.display = 'none';
+        return;
+        }
+
+        banner.style.display = 'flex';
+
+        btn.addEventListener('click', () => {
+        sessionStorage.setItem('cookiesAcceptedSession', 'true');
+        banner.style.display = 'none';
+        });
+    });
+
+    // --- Lógica del modal (solo Pablo) ---
+  const modal = document.getElementById('modalPablo');
+  const openBtn = document.getElementById('btnPerfilPablo');
+  const closeBtn = modal.querySelector('.modal-close');
+
+  function openModal(){
+    modal.classList.add('open');
+    document.body.classList.add('lock');
+    modal.setAttribute('aria-hidden','false');
+  }
+  function closeModal(){
+    modal.classList.remove('open');
+    document.body.classList.remove('lock');
+    modal.setAttribute('aria-hidden','true');
+  }
+
+  openBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
+  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+
+const boton = document.getElementById('toggleBtn');
+const texto = document.getElementById('infoAbogados');
+
+  boton.addEventListener('click', () => {
+    texto.classList.toggle('oculto'); // alterna mostrar/ocultar
+  });
+</script>
+</html>

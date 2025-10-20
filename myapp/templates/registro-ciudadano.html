@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css?v=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'Css/style.css?v=1.0' %}">
+    <link rel="icon" href="{% static 'Img/Logo.png' %}">
+    <title>Registro Ciudadano</title>
+</head>
+<body>
+    <header>
+        <a class="logo" href="{% url 'index' %}">
+            <img src="{% static 'Img/Logo.png' %}" alt="Logo Orion Legal">
+            <h1>Orion Legal</h1>
+        </a>
+        <nav>
+            <a href="{% url 'index' %}" class="nav-link">Inicio</a>
+            <li class="dropdown">
+                <a href="#" class="nav-link">Quiénes Somos ▾</a>
+                <ul class="dropdown-menu">
+                <li><a href="{% url 'misionyvision' %}"><span class="icon">💡</span> Misión y Visión</a></li>
+                <li><a href="{% url '¿PorqueOrionLegal?' %}"><span class="icon">❓</span> ¿Por qué Oríon Legal?</a></li>
+                <li><a href="{% url '¿QueBuscamos?' %}"><span class="icon">🔭</span> ¿Qué buscamos?</a></li>
+                </ul>
+            </li>
+            <a href="{% url 'indexregistro' %}"><button class="Registro">Registrarse</button></a>
+            <a href="{% url 'login' %}"><button class="Iniciar">Iniciar Sesión</button></a>
+        </nav>
+    </header>
+    <div class="RegisCiudadano">
+        <div class="RegisCiudadano2">
+            <h1>REGISTRO CIUDADANO</h1>
+            <i class="fa-solid fa-user"></i> 
+            <input type="text" placeholder="Nombre completo" autocomplete="off"><br>
+            <i class="fa-solid fa-lock"></i> 
+            <input type="password" placeholder="contraseñas" autocomplete="new-password"><br>
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" placeholder="Correo electrónico" autocomplete="off"><br>
+            <input type="checkbox" style="width: 50px;">Acepto el tratamiento de mis datos personales y de imagen conforme a la Ley 1581 de 2012 <br>
+            <button>Registrarse</button>
+            <a href="{% url 'indexregistro' %}"><button style="margin-left: 10px; background-color: white; color: #a68868;">Volver</button></a>
+        </div>
+    </div>
+    <footer>
+        Orión Legal © 2025
+    </footer>
+</body>
+</html>
